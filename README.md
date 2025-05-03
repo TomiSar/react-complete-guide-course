@@ -12,6 +12,7 @@
 - 10 Advanced State Management with Context useReducer: OnlineShopProject
 - 11 Side Effects useEffect: PlacePickerProject
 - 12 Demo Project: QuizProject
+- 13 Behind The Scenes
 
 ... Other coming soon
 
