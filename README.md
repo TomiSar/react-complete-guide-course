@@ -13,6 +13,7 @@
 - 11 Side Effects useEffect: PlacePickerProject
 - 12 Demo Project: QuizProject
 - 13 Behind The Scenes
+- 15 HTTPRequests: PlacePickerProject
 
 ... Other coming soon
 
