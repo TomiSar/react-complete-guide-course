@@ -30,7 +30,7 @@
 - npm install
 - npm run dev
 
-### Install packages: Project that has frontend folder (http://localhost:3000/) and frontend (http://localhost:4000/)
+### Install packages: Project that has backend folder (http://localhost:4000/) and frontend (http://localhost:3000/)
 
 - cd backend
 - npm i
