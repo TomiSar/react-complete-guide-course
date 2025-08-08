@@ -5,15 +5,15 @@ import { OpinionsContext } from '../store/opinions-context';
 
 export function Opinions() {
   const { opinions } = use(OpinionsContext);
-  
+
   return (
-    <div id="opinions">
+    <div id='opinions'>
       <h2>User Opinions</h2>
       {opinions && (
         <ul>
-          {opinions.map((o) => (
-            <li key={o.id}>
-              <Opinion opinion={o} />
+          {opinions.map((opinion) => (
+            <li key={opinion.id}>
+              <Opinion opinion={opinion} />
             </li>
           ))}
         </ul>

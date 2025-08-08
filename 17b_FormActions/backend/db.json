@@ -1,6 +1,20 @@
 {
   "opinions": [
     {
+      "id": 1754652387997,
+      "votes": 2,
+      "userName": "Chuck",
+      "title": "This is it",
+      "body": "Test test test...."
+    },
+    {
+      "id": 1754651860424,
+      "votes": 0,
+      "userName": "Hannu Karpo ",
+      "title": "Karpolla on asiaa!!",
+      "body": "Testing this application"
+    },
+    {
       "id": 1,
       "userName": "Maximilian Schwarzmüller",
       "title": "Do yourself a favor and learn React!",
@@ -12,6 +26,13 @@
       "userName": "Maximilian Schwarzmüller",
       "title": "React has more depth than you might first think!",
       "body": "React is a great library to learn, but it's not just about the basics. Dive deeper!\nFor example with this course!",
+      "votes": 0
+    },
+    {
+      "id": 3,
+      "userName": "Matti Nykänen",
+      "title": "Mäkimiesten mäkimiäs",
+      "body": "Elämä on laiffii!",
       "votes": 0
     }
   ]
