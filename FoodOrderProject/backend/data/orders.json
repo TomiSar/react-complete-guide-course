@@ -1,1 +1,174 @@
-[]
+[
+  {
+    "items": [
+      {
+        "id": "m1",
+        "name": "Mac & Cheese",
+        "price": "8.99",
+        "description": "Creamy cheddar cheese mixed with perfectly cooked macaroni, topped with crispy breadcrumbs. A classic comfort food.",
+        "image": "images/mac-and-cheese.jpg",
+        "quantity": 1
+      },
+      {
+        "id": "m2",
+        "name": "Margherita Pizza",
+        "price": "12.99",
+        "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
+        "image": "images/margherita-pizza.jpg",
+        "quantity": 1
+      },
+      {
+        "id": "m3",
+        "name": "Caesar Salad",
+        "price": "7.99",
+        "description": "Romaine lettuce tossed in Caesar dressing, topped with croutons and parmesan shavings.",
+        "image": "images/caesar-salad.jpg",
+        "quantity": 1
+      }
+    ],
+    "customer": {
+      "name": "TomTom",
+      "email": "tomtom@email.com",
+      "street": "Love street 1",
+      "postal-code": "01234",
+      "city": "LA"
+    },
+    "id": "431.45535585271546"
+  },
+  {
+    "items": [
+      {
+        "id": "m2",
+        "name": "Margherita Pizza",
+        "price": "12.99",
+        "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
+        "image": "images/margherita-pizza.jpg",
+        "quantity": 1
+      },
+      {
+        "id": "m3",
+        "name": "Caesar Salad",
+        "price": "7.99",
+        "description": "Romaine lettuce tossed in Caesar dressing, topped with croutons and parmesan shavings.",
+        "image": "images/caesar-salad.jpg",
+        "quantity": 1
+      }
+    ],
+    "customer": {
+      "name": "test1",
+      "email": "test1@email.com",
+      "street": "asdasd",
+      "postal-code": "012675",
+      "city": "LA"
+    },
+    "id": "180.0550955802742"
+  },
+  {
+    "items": [
+      {
+        "id": "m2",
+        "name": "Margherita Pizza",
+        "price": "12.99",
+        "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
+        "image": "images/margherita-pizza.jpg",
+        "quantity": 1
+      },
+      {
+        "id": "m3",
+        "name": "Caesar Salad",
+        "price": "7.99",
+        "description": "Romaine lettuce tossed in Caesar dressing, topped with croutons and parmesan shavings.",
+        "image": "images/caesar-salad.jpg",
+        "quantity": 1
+      },
+      {
+        "id": "m1",
+        "name": "Mac & Cheese",
+        "price": "8.99",
+        "description": "Creamy cheddar cheese mixed with perfectly cooked macaroni, topped with crispy breadcrumbs. A classic comfort food.",
+        "image": "images/mac-and-cheese.jpg",
+        "quantity": 1
+      }
+    ],
+    "customer": {
+      "name": "test2",
+      "email": "test1@email.com",
+      "street": "Love street",
+      "postal-code": "012345",
+      "city": "NY"
+    },
+    "id": "114.19852652556561"
+  },
+  {
+    "items": [
+      {
+        "id": "m12",
+        "name": "Pancake Stack",
+        "price": "8.99",
+        "description": "Fluffy pancakes stacked high, drizzled with maple syrup and topped with fresh berries.",
+        "image": "images/pancake-stack.jpg",
+        "quantity": 1
+      },
+      {
+        "id": "m8",
+        "name": "Sushi Roll Platter",
+        "price": "15.99",
+        "description": "An assortment of fresh sushi rolls including California, Spicy Tuna, and Eel Avocado.",
+        "image": "images/sushi-roll-platter.jpg",
+        "quantity": 1
+      }
+    ],
+    "customer": {
+      "name": "tomtom",
+      "email": "tomtom@mail.com",
+      "street": "Test street 1",
+      "postal-code": "00550",
+      "city": "Helsinki"
+    },
+    "id": "383.24121442573266"
+  },
+  {
+    "items": [
+      {
+        "id": "m2",
+        "name": "Margherita Pizza",
+        "price": "12.99",
+        "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
+        "image": "images/margherita-pizza.jpg",
+        "quantity": 1
+      },
+      {
+        "id": "m3",
+        "name": "Caesar Salad",
+        "price": "7.99",
+        "description": "Romaine lettuce tossed in Caesar dressing, topped with croutons and parmesan shavings.",
+        "image": "images/caesar-salad.jpg",
+        "quantity": 1
+      },
+      {
+        "id": "m18",
+        "name": "Eggplant Parmesan",
+        "price": "11.99",
+        "description": "Layers of breaded eggplant, marinara sauce, and melted mozzarella and parmesan cheeses.",
+        "image": "images/eggplant-parmesan.jpg",
+        "quantity": 2
+      },
+      {
+        "id": "m16",
+        "name": "Lobster Bisque",
+        "price": "14.99",
+        "description": "A creamy soup made from lobster stock, aromatic vegetables, and a touch of brandy.",
+        "image": "images/lobster-bisque.jpg",
+        "quantity": 2
+      }
+    ],
+    "customer": {
+      "name": "hungry man",
+      "email": "test@email.com",
+      "street": "Boulevard 1",
+      "postal-code": "096578",
+      "city": "Tallinn"
+    },
+    "id": "604.7545550119062"
+  }
+]
