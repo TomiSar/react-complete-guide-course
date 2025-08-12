@@ -18,7 +18,10 @@
 - 17_FormsUserInput
 - 17b_FormActions
 - FoodOrderProject
-  ... Other coming soon
+- 19a_ReduxBasics
+- 19b_ReduxBasics
+- 20_AdvancedRedux
+- ... Other coming soon
 
 ### Tech Stack
 
