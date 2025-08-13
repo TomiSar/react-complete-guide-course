@@ -21,6 +21,8 @@
 - 19a_ReduxBasics
 - 19b_ReduxBasics
 - 20_AdvancedRedux
+- 21a_Routing
+- 21b_Routing
 - ... Other coming soon
 
 ### Tech Stack
