@@ -1,7 +1,7 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-
 const eventRoutes = require('./routes/events');
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 
@@ -21,4 +21,6 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message });
 });
 
-app.listen(8080);
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
