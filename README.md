@@ -23,6 +23,7 @@
 - 20_AdvancedRedux
 - 21a_Routing
 - 21b_Routing
+- 22_Authentication
 - ... Other coming soon
 
 ### Tech Stack
