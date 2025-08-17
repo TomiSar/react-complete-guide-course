@@ -24,6 +24,7 @@
 - 21a_Routing
 - 21b_Routing
 - 22_Authentication
+- 23_Deployment
 - ... Other coming soon
 
 ### Tech Stack
