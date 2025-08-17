@@ -103,7 +103,6 @@ export async function action({ request, params }) {
   }
 
   const token = getAuthToken();
-  console.log('token in EventForm: ', token);
   const response = await fetch(url, {
     method: method,
     headers: {
