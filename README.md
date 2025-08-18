@@ -25,6 +25,7 @@
 - 21b_Routing
 - 22_Authentication
 - 23_Deployment
+- 24_ReactQuery
 - ... Other coming soon
 
 ### Tech Stack
