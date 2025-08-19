@@ -26,6 +26,7 @@
 - 22_Authentication
 - 23_Deployment
 - 24_ReactQuery
+- 25_NextJS
 - ... Other coming soon
 
 ### Tech Stack
