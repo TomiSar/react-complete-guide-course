@@ -34,7 +34,9 @@
 }
 
 .loading {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   animation: loading 1.2s ease-in-out infinite;
 }
 
