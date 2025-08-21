@@ -12,6 +12,8 @@ function MeetupList({ meetups }) {
           title={meetup.title}
           address={meetup.address}
           description={meetup.description}
+          createdAt={meetup.createdAt}
+          updatedAt={meetup.updatedAt}
         />
       ))}
     </ul>

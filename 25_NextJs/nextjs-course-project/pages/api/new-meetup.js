@@ -10,7 +10,13 @@ async function handler(req, res) {
   try {
     const data = req.body;
     const meetupsCollection = await getCollectionData();
-    const result = await meetupsCollection.insertOne(data);
+    const newMeetupData = {
+      ...data,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+
+    const result = await meetupsCollection.insertOne(newMeetupData);
 
     res.status(201).json({
       message: 'New Meetup created successfully!',

@@ -5,3 +5,13 @@
 .detail img {
   width: 100%;
 }
+
+.timestamps {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  color: #666;
+  font-style: italic;
+}

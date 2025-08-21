@@ -4,7 +4,8 @@ import { getCollectionData } from '../../utils/helpers';
 import { ObjectId } from 'mongodb';
 
 function MeetupDetails(props) {
-  const { image, title, address, description } = props.meetupData;
+  const { image, title, address, description, createdAt, updatedAt } =
+    props.meetupData;
 
   return (
     <>
@@ -14,6 +15,8 @@ function MeetupDetails(props) {
         title={title}
         address={address}
         description={description}
+        createdAt={createdAt}
+        updatedAt={updatedAt}
       />
     </>
   );
@@ -50,6 +53,8 @@ export async function getStaticProps(context) {
         address: meetupData.address,
         image: meetupData.image,
         description: meetupData.description,
+        createdAt: meetupData.createdAt.toISOString(),
+        updatedAt: meetupData.updatedAt.toISOString(),
       },
     },
   };

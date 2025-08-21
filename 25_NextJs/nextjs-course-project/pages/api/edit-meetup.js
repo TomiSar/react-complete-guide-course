@@ -14,7 +14,15 @@ async function handler(req, res) {
 
     const result = await meetupsCollection.updateOne(
       { _id: ObjectId.createFromHexString(id) },
-      { $set: { title, image, address, description } }
+      {
+        $set: {
+          title,
+          image,
+          address,
+          description,
+          updatedAt: new Date(),
+        },
+      }
     );
 
     if (result.matchedCount === 0) {

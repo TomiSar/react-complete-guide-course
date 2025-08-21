@@ -8,6 +8,8 @@ import { API_DELETE_MEETUP_URL } from '../../utils/constants';
 function MeetupItem(meetup) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const router = useRouter();
+  const createdDate = new Date(meetup.createdAt).toLocaleDateString('fi-FI');
+  const updatedDate = new Date(meetup.updatedAt).toLocaleDateString('fi-FI');
 
   function showMeetupHandler() {
     router.push(`/${meetup.id}`);
@@ -67,6 +69,12 @@ function MeetupItem(meetup) {
             <h2>{meetup.title}</h2>
             <address>{meetup.address}</address>
             <p>{meetup.description}</p>
+            <div className={classes.timestamps}>
+              <small>Created on: {createdDate}</small>
+              {updatedDate !== createdDate && (
+                <small>Last updated: {updatedDate}</small>
+              )}
+            </div>
           </div>
           <div className={classes.actions}>
             <button className={classes.btnShow} onClick={showMeetupHandler}>

@@ -17,20 +17,27 @@ function HomePage(props) {
 export async function getStaticProps() {
   // Fetch data from database
   const meetupsCollection = await getCollectionData();
-  const meetups = await meetupsCollection.find().toArray();
+  const sortedMeetups = await meetupsCollection
+    .find({})
+    .sort({ createdAt: -1 })
+    .toArray();
 
   return {
     props: {
-      meetups: meetups.map((meetup) => ({
+      meetups: sortedMeetups.map((meetup) => ({
         id: meetup._id.toString(),
         title: meetup.title,
         address: meetup.address,
         image: meetup.image,
         description: meetup.description,
+        createdAt: meetup.createdAt.toISOString(),
+        updatedAt: meetup.updatedAt.toISOString(),
       })),
     },
   };
 }
+
+export default HomePage;
 
 // export async function getServerSideProps(context) {
 //   const res = context.res;
@@ -43,5 +50,3 @@ export async function getStaticProps() {
 //     },
 //   };
 // }
-
-export default HomePage;
