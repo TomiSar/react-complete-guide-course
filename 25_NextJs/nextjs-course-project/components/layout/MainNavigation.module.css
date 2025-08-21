@@ -14,6 +14,14 @@
   font-weight: bold;
 }
 
+.logo:hover,
+.logo:active {
+  text-decoration: none;
+  font-size: 2rem;
+  color: #fcb8d2;
+  font-weight: bold;
+}
+
 .header ul {
   list-style: none;
   margin: 0;
