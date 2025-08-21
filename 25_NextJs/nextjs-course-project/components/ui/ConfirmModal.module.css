@@ -1,0 +1,97 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 90%;
+  max-width: 40rem;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 8px;
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+}
+
+.header {
+  background: #77002e;
+  padding: 1rem;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.header h2 {
+  margin: 0;
+  color: white;
+  font-size: 1.25rem;
+}
+
+.content {
+  padding: 1.5rem;
+  color: #2c292b;
+}
+
+.content p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #c40202;
+}
+
+.actions {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+}
+
+.btnCancel {
+  font: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  color: #1fb25f;
+  border: 2px solid #1fb25f;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+}
+
+.btnCancel:hover,
+.btnCancel:active {
+  background-color: #c9f5d9;
+}
+
+.btnConfirm {
+  font: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  color: #c40202;
+  border: 2px solid #c40202;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+}
+
+.btnConfirm:hover,
+.btnConfirm:active {
+  background-color: #f7e0e0;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

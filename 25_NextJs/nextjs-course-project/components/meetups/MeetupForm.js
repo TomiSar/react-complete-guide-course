@@ -11,10 +11,10 @@ function MeetupForm({ onAddMeetup, onEditMeetup, meetupData }) {
   function submitHandler(event) {
     event.preventDefault();
 
-    const enteredTitle = titleInputRef.current.value;
-    const enteredImage = imageInputRef.current.value;
-    const enteredAddress = addressInputRef.current.value;
-    const enteredDescription = descriptionInputRef.current.value;
+    const enteredTitle = titleInputRef.current.value.trim();
+    const enteredImage = imageInputRef.current.value.trim();
+    const enteredAddress = addressInputRef.current.value.trim();
+    const enteredDescription = descriptionInputRef.current.value.trim();
 
     const formData = {
       id: meetupData?.id, // Only if edit
