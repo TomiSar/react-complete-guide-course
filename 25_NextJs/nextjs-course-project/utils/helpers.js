@@ -28,3 +28,32 @@ export async function getMeetupDataById(meetupId) {
     throw error;
   }
 }
+
+export async function getSortedCollectionData(collectionName = 'meetups') {
+  try {
+    const dataCollection = await getCollectionData(collectionName);
+    // Sort descending by createdAt
+    // const sortedMeetups = await meetupsCollection
+    //   .find({})
+    //   .sort({ createdAt: -1 })
+    //   .toArray();
+
+    // Sort by latest activity, using updatedAt if available, otherwise createdAt
+    const sortedDataCollection = await dataCollection
+      .aggregate([
+        {
+          $addFields: {
+            latestActivity: { $ifNull: ['$updatedAt', '$createdAt'] },
+          },
+        },
+        {
+          $sort: { latestActivity: -1 },
+        },
+      ])
+      .toArray();
+    return sortedDataCollection;
+  } catch (error) {
+    console.error('Error fetching sorted meetups:', error);
+    throw new Error('Could not fetch meetups.');
+  }
+}

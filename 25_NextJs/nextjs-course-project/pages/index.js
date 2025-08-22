@@ -1,6 +1,6 @@
 import HeadContent from '../components/ui/HeadContent';
 import MeetupList from '../components/meetups/MeetupList';
-import { getCollectionData } from '../utils/helpers';
+import { getSortedCollectionData } from '../utils/helpers';
 
 function HomePage(props) {
   return (
@@ -15,12 +15,8 @@ function HomePage(props) {
 }
 
 export async function getServerSideProps() {
-  // Fetch data from database
-  const meetupsCollection = await getCollectionData();
-  const sortedMeetups = await meetupsCollection
-    .find({})
-    .sort({ createdAt: -1 })
-    .toArray();
+  // Fetch data from database and sort by latest activity
+  const sortedMeetups = await getSortedCollectionData();
 
   return {
     props: {
