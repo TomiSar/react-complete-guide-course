@@ -1,12 +1,9 @@
-import { useRouter } from 'next/router';
 import HeadContent from '../../components/ui/HeadContent';
 import MeetupForm from '../../components/meetups/MeetupForm';
 import { API_EDIT_MEETUP_URL } from '../../utils/constants';
 import { getMeetupDataById } from '../../utils/helpers';
 
 function EditMeetupPage({ meetupData }) {
-  const router = useRouter();
-
   async function editMeetupHandler(editedMeetupData) {
     const response = await fetch(API_EDIT_MEETUP_URL, {
       method: 'PUT',
@@ -18,7 +15,7 @@ function EditMeetupPage({ meetupData }) {
 
     // const data = await response.json();
     // console.log(data);
-    router.push('/');
+    window.location.href = '/';
   }
 
   return (
