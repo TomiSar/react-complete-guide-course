@@ -7,6 +7,9 @@ function MeetupForm({ onAddMeetup, onEditMeetup, meetupData }) {
   const imageInputRef = useRef();
   const addressInputRef = useRef();
   const descriptionInputRef = useRef();
+  const updatedDate = meetupData?.updatedAt
+    ? new Date(meetupData?.updatedAt).toLocaleDateString('fi-FI')
+    : null;
 
   function submitHandler(event) {
     event.preventDefault();
@@ -75,6 +78,11 @@ function MeetupForm({ onAddMeetup, onEditMeetup, meetupData }) {
           ></textarea>
         </div>
         <div className={classes.actions}>
+          {updatedDate && (
+            <small className={classes.timestamps}>
+              Updated on: {updatedDate}
+            </small>
+          )}
           <button>{onEditMeetup ? 'Edit Meetup' : 'Add Meetup'}</button>
         </div>
       </form>

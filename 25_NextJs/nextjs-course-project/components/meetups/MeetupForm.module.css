@@ -22,9 +22,17 @@
   width: 100%;
 }
 
+.timestamps {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+}
+
 .actions {
-  margin-top: 1rem;
-  text-align: right;
+  display: flex;
+  margin-top: 1.25rem;
+  align-items: center;
+  gap: 1rem;
 }
 
 .actions button {
@@ -36,6 +44,7 @@
   border: 1px solid #77002e;
   border-radius: 4px;
   font-weight: bold;
+  margin-left: auto;
 }
 
 .actions button:hover,

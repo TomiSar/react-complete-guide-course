@@ -9,7 +9,6 @@ function MeetupItem(meetup) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const router = useRouter();
   const createdDate = new Date(meetup.createdAt).toLocaleDateString('fi-FI');
-  const updatedDate = new Date(meetup.updatedAt).toLocaleDateString('fi-FI');
 
   function showMeetupHandler() {
     router.push(`/${meetup.id}`);
@@ -71,9 +70,6 @@ function MeetupItem(meetup) {
             <p>{meetup.description}</p>
             <div className={classes.timestamps}>
               <small>Created on: {createdDate}</small>
-              {updatedDate !== createdDate && (
-                <small>Last updated: {updatedDate}</small>
-              )}
             </div>
           </div>
           <div className={classes.actions}>

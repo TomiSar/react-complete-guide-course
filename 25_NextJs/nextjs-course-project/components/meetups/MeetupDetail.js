@@ -20,7 +20,7 @@ function MeetupDetail({
       <div className={classes.timestamps}>
         <small>Created on: {createdDate}</small>
         {updatedDate !== createdDate && (
-          <small>Last updated: {updatedDate}</small>
+          <small>Updated on: {updatedDate}</small>
         )}
       </div>
     </section>

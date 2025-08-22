@@ -20,6 +20,8 @@ export async function getMeetupDataById(meetupId) {
       address: meetupData.address,
       image: meetupData.image,
       description: meetupData.description,
+      createdAt: meetupData.createdAt.toISOString(),
+      updatedAt: meetupData.updatedAt.toISOString(),
     };
   } catch (error) {
     console.error('Error getting meetup data:', error);
