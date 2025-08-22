@@ -43,7 +43,7 @@ function MeetupItem(meetup) {
           `Failed to delete meetup ${meetup.title} with ID: ${meetup.id}`
         );
       }
-      window.location.href = '/';
+      router.replace('/').then(() => router.reload());
     } catch (error) {
       console.error('Error deleting meetup:', error);
       alert(`Failed to delete meetup: ${error.message}`);

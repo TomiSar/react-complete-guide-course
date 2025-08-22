@@ -1,8 +1,10 @@
+import { useRouter } from 'next/router';
 import HeadContent from '../../components/ui/HeadContent';
 import MeetupForm from '../../components/meetups/MeetupForm';
 import { API_NEW_MEETUP_URL } from '../../utils/constants';
 
 function NewMeetupPage() {
+  const router = useRouter();
   async function addMeetupHandler(newMeetupData) {
     const response = await fetch(API_NEW_MEETUP_URL, {
       method: 'POST',
@@ -14,7 +16,7 @@ function NewMeetupPage() {
 
     // const data = await response.json();
     // console.log(data);
-    window.location.href = '/';
+    router.replace('/').then(() => router.reload());
   }
 
   return (
