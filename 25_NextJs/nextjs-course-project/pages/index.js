@@ -14,7 +14,7 @@ function HomePage(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Fetch data from database
   const meetupsCollection = await getCollectionData();
   const sortedMeetups = await meetupsCollection
@@ -30,24 +30,35 @@ export async function getStaticProps() {
         address: meetup.address,
         image: meetup.image,
         description: meetup.description,
-        createdAt: meetup.createdAt.toISOString(),
-        updatedAt: meetup.updatedAt.toISOString(),
+        createdAt: meetup.createdAt ? meetup.createdAt.toISOString() : null,
+        updatedAt: meetup.updatedAt ? meetup.updatedAt.toISOString() : null,
       })),
     },
-    revalidate: 1,
   };
 }
 
-export default HomePage;
+// THIS caused some latest data fetching issues (switched to getServerSideProps)
+// export async function getStaticProps() {
+//   const meetupsCollection = await getCollectionData();
+//   const sortedMeetups = await meetupsCollection
+//     .find({})
+//     .sort({ createdAt: -1 })
+//     .toArray();
 
-// export async function getServerSideProps(context) {
-//   const res = context.res;
-//   const req = context.req;
-
-//   // Fetch data from an API or database
 //   return {
 //     props: {
-//       meetups: DUMMY_MEETUPS,
+//       meetups: sortedMeetups.map((meetup) => ({
+//         id: meetup._id.toString(),
+//         title: meetup.title,
+//         address: meetup.address,
+//         image: meetup.image,
+//         description: meetup.description,
+//         createdAt: meetup.createdAt.toISOString(),
+//         updatedAt: meetup.updatedAt.toISOString(),
+//       })),
 //     },
+//     revalidate: 1,
 //   };
 // }
+
+export default HomePage;

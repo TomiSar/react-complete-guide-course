@@ -17,7 +17,7 @@ function EditMeetupPage({ meetupData }) {
 
     // const data = await response.json();
     // console.log(data);
-    router.replace('/').then(() => router.reload());
+    router.push('/');
   }
 
   return (
