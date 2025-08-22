@@ -34,6 +34,7 @@ export async function getStaticProps() {
         updatedAt: meetup.updatedAt.toISOString(),
       })),
     },
+    revalidate: 1,
   };
 }
 

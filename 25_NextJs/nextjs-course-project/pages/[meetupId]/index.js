@@ -57,6 +57,7 @@ export async function getStaticProps(context) {
         updatedAt: meetupData.updatedAt.toISOString(),
       },
     },
+    revalidate: 1,
   };
 }
 
