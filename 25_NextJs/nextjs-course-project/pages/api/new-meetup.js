@@ -1,4 +1,4 @@
-import { connectDB } from '../../utils/connectDb';
+import { connectDB } from '../../utils/connectDB';
 import Meetup from '../../models/Meetup';
 import { getServerSession } from 'next-auth';
 import { authOptions } from './auth/[...nextauth]';

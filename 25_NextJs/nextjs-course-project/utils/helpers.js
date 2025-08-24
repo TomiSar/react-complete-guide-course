@@ -1,4 +1,4 @@
-import { connectDB } from './connectDb';
+import { connectDB } from './connectDB';
 import Meetup from '../models/Meetup';
 
 export async function getMeetupById(id) {
