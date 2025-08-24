@@ -2,13 +2,13 @@ import { useRef } from 'react';
 import Card from '../ui/Card';
 import classes from './MeetupForm.module.css';
 
-function MeetupForm({ onAddMeetup, onEditMeetup, meetupData }) {
+function MeetupForm({ onAddMeetup, onEditMeetup, meetup }) {
   const titleInputRef = useRef();
   const imageInputRef = useRef();
   const addressInputRef = useRef();
   const descriptionInputRef = useRef();
-  const updatedDate = meetupData?.updatedAt
-    ? new Date(meetupData?.updatedAt).toLocaleDateString('fi-FI')
+  const updatedDate = meetup?.updatedAt
+    ? new Date(meetup?.updatedAt).toLocaleDateString('fi-FI')
     : null;
 
   function submitHandler(event) {
@@ -20,7 +20,7 @@ function MeetupForm({ onAddMeetup, onEditMeetup, meetupData }) {
     const enteredDescription = descriptionInputRef.current.value.trim();
 
     const formData = {
-      id: meetupData?.id, // Only if edit
+      id: meetup?.id, // Only if edit
       title: enteredTitle,
       image: enteredImage,
       address: enteredAddress,
@@ -44,7 +44,7 @@ function MeetupForm({ onAddMeetup, onEditMeetup, meetupData }) {
             required
             id='title'
             ref={titleInputRef}
-            defaultValue={meetupData?.title || ''}
+            defaultValue={meetup?.title || ''}
           />
         </div>
         <div className={classes.control}>
@@ -54,7 +54,7 @@ function MeetupForm({ onAddMeetup, onEditMeetup, meetupData }) {
             required
             id='image'
             ref={imageInputRef}
-            defaultValue={meetupData?.image || ''}
+            defaultValue={meetup?.image || ''}
           />
         </div>
         <div className={classes.control}>
@@ -64,7 +64,7 @@ function MeetupForm({ onAddMeetup, onEditMeetup, meetupData }) {
             required
             id='address'
             ref={addressInputRef}
-            defaultValue={meetupData?.address || ''}
+            defaultValue={meetup?.address || ''}
           />
         </div>
         <div className={classes.control}>
@@ -74,7 +74,7 @@ function MeetupForm({ onAddMeetup, onEditMeetup, meetupData }) {
             required
             rows='5'
             ref={descriptionInputRef}
-            defaultValue={meetupData?.description || ''}
+            defaultValue={meetup?.description || ''}
           ></textarea>
         </div>
         <div className={classes.actions}>

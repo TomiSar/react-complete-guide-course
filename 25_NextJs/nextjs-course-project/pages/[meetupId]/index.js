@@ -1,20 +1,20 @@
 import MeetupDetail from '../../components/meetups/MeetupDetail';
 import HeadContent from '../../components/ui/HeadContent';
-import { getCollectionData } from '../../utils/helpers';
-import { ObjectId } from 'mongodb';
+import { getMeetupById, getSortedMeetups } from '../../utils/helpers';
 
 function MeetupDetails(props) {
-  const { image, title, address, description, createdAt, updatedAt } =
-    props.meetupData;
+  const { image, title, address, description, creator, createdAt, updatedAt } =
+    props.meetup;
 
   return (
     <>
       <HeadContent title={title} content={description} />
       <MeetupDetail
-        image={image}
         title={title}
+        image={image}
         address={address}
         description={description}
+        creator={creator}
         createdAt={createdAt}
         updatedAt={updatedAt}
       />
@@ -23,9 +23,7 @@ function MeetupDetails(props) {
 }
 
 export async function getStaticPaths() {
-  // Fetch data from database
-  const meetupsCollection = await getCollectionData();
-  const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray();
+  const meetups = await getSortedMeetups();
 
   return {
     fallback: 'blocking',
@@ -36,26 +34,18 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const meetupId = context.params.meetupId;
+  const id = context.params.meetupId;
 
-  // Fetch data from database
-  const meetupsCollection = await getCollectionData();
-  const meetupData = await meetupsCollection.findOne({
-    _id: ObjectId.createFromHexString(meetupId),
-  });
+  const meetup = await getMeetupById(id);
+  if (!meetup) {
+    return {
+      notFound: true,
+    };
+  }
 
-  // Fetch data for a single meetup using the meetupId
   return {
     props: {
-      meetupData: {
-        id: meetupData._id.toString(),
-        title: meetupData.title,
-        address: meetupData.address,
-        image: meetupData.image,
-        description: meetupData.description,
-        createdAt: meetupData.createdAt.toISOString(),
-        updatedAt: meetupData.updatedAt.toISOString(),
-      },
+      meetup: meetup,
     },
     revalidate: 1,
   };

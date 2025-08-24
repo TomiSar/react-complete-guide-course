@@ -14,6 +14,12 @@
   font-weight: bold;
 }
 
+.logoText {
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+}
+
 .logo:hover,
 .logo:active {
   text-decoration: none;
@@ -44,4 +50,26 @@
 .header a:active,
 .header a.active {
   color: white;
+}
+
+.user {
+  font-size: 1.2rem;
+  color: white;
+  margin-left: 3rem;
+}
+
+.logoutButton {
+  font: inherit;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logoutButton:hover {
+  background-color: #ffe2ed;
+  color: #77002e;
 }

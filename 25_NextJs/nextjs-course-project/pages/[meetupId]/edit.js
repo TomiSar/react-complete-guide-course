@@ -2,9 +2,9 @@ import { useRouter } from 'next/router';
 import HeadContent from '../../components/ui/HeadContent';
 import MeetupForm from '../../components/meetups/MeetupForm';
 import { API_EDIT_MEETUP_URL } from '../../utils/constants';
-import { getMeetupDataById } from '../../utils/helpers';
+import { getMeetupById } from '../../utils/helpers';
 
-function EditMeetupPage({ meetupData }) {
+function EditMeetupPage({ meetup }) {
   const router = useRouter();
   async function editMeetupHandler(editedMeetupData) {
     const response = await fetch(API_EDIT_MEETUP_URL, {
@@ -26,18 +26,18 @@ function EditMeetupPage({ meetupData }) {
         title='Edit a Meetup'
         content='Edit your own meetup details and create amazing networking opportunities!'
       />
-      <MeetupForm onEditMeetup={editMeetupHandler} meetupData={meetupData} />
+      <MeetupForm onEditMeetup={editMeetupHandler} meetup={meetup} />
     </>
   );
 }
 
 export async function getServerSideProps(context) {
-  const meetupId = context.params.meetupId;
-  const meetupData = await getMeetupDataById(meetupId);
+  const id = context.params.meetupId;
+  const meetup = await getMeetupById(id);
 
   return {
     props: {
-      meetupData,
+      meetup,
     },
   };
 }

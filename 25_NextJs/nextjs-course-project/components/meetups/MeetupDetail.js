@@ -5,6 +5,7 @@ function MeetupDetail({
   title,
   address,
   description,
+  creator,
   createdAt,
   updatedAt,
 }) {
@@ -18,6 +19,9 @@ function MeetupDetail({
       <address>{address}</address>
       <p>{description}</p>
       <div className={classes.timestamps}>
+        <p>
+          Creator: <strong>{creator.name}</strong>
+        </p>
         <small>Created on: {createdDate}</small>
         {updatedDate !== createdDate && (
           <small>Updated on: {updatedDate}</small>

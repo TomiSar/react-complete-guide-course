@@ -3,12 +3,18 @@ import { useRouter } from 'next/router';
 import Card from '../ui/Card';
 import ConfirmModal from '../ui/ConfirmModal';
 import classes from './MeetupItem.module.css';
+import { useSession } from 'next-auth/react';
 import { API_DELETE_MEETUP_URL } from '../../utils/constants';
 
 function MeetupItem(meetup) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const router = useRouter();
+  const { data: session } = useSession();
   const createdDate = new Date(meetup.createdAt).toLocaleDateString('fi-FI');
+
+  const isAllowedToModifyMeetup =
+    session &&
+    (session.user.id === meetup.creator || session.user.role === 'admin');
 
   function showMeetupHandler() {
     router.push(`/${meetup.id}`);
@@ -76,15 +82,19 @@ function MeetupItem(meetup) {
             <button className={classes.btnShow} onClick={showMeetupHandler}>
               Show Meetup
             </button>
-            <button className={classes.btnEdit} onClick={editMeetupHandler}>
-              Edit Meetup
-            </button>
-            <button
-              className={classes.btnDelete}
-              onClick={openDeleteModalHandler}
-            >
-              Delete Meetup
-            </button>
+            {isAllowedToModifyMeetup && (
+              <>
+                <button className={classes.btnEdit} onClick={editMeetupHandler}>
+                  Edit Meetup
+                </button>
+                <button
+                  className={classes.btnDelete}
+                  onClick={openDeleteModalHandler}
+                >
+                  Delete Meetup
+                </button>
+              </>
+            )}
           </div>
         </Card>
       </li>
