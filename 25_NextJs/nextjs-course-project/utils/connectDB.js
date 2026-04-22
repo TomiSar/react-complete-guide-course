@@ -5,7 +5,8 @@ export async function connectDB() {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI);
     console.log(
-      `MongoDB connected to cluster: ${conn.connection.host}`.rainbow
+      `MongoDB connected to cluster: ${conn.connection.host} (using DB: ${conn.connection.name})`
+        .rainbow
     );
   } catch (error) {
     if (error instanceof mongoose.Error) {

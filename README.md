@@ -27,6 +27,7 @@
 - 23_Deployment
 - 24_ReactQuery
 - 25_NextJS
+- 26_ReactServerComponents
 - ... Other coming soon
 
 ### Tech Stack

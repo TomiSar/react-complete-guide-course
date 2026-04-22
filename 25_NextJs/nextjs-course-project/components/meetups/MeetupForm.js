@@ -2,6 +2,15 @@ import { useRef } from 'react';
 import Card from '../ui/Card';
 import classes from './MeetupForm.module.css';
 
+async function covertToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+}
+
 function MeetupForm({ onAddMeetup, onEditMeetup, meetup }) {
   const titleInputRef = useRef();
   const imageInputRef = useRef();
@@ -11,26 +20,38 @@ function MeetupForm({ onAddMeetup, onEditMeetup, meetup }) {
     ? new Date(meetup?.updatedAt).toLocaleDateString('fi-FI')
     : null;
 
-  function submitHandler(event) {
+  async function submitHandler(event) {
     event.preventDefault();
 
     const enteredTitle = titleInputRef.current.value.trim();
-    const enteredImage = imageInputRef.current.value.trim();
+    const selectedImageFile = imageInputRef.current.files[0];
     const enteredAddress = addressInputRef.current.value.trim();
     const enteredDescription = descriptionInputRef.current.value.trim();
 
-    const formData = {
-      id: meetup?.id, // Only if edit
+    let imageAsBase64 = null;
+    if (selectedImageFile) {
+      try {
+        imageAsBase64 = await covertToBase64(selectedImageFile);
+      } catch (error) {
+        console.error('Error converting file to Base64', error);
+        return;
+      }
+    }
+
+    const meetupData = {
+      id: meetup?.id,
       title: enteredTitle,
-      image: enteredImage,
+      imageBase64: imageAsBase64,
       address: enteredAddress,
       description: enteredDescription,
     };
 
+    console.log('Sending this data to API:', meetupData);
+
     if (onEditMeetup) {
-      onEditMeetup(formData);
+      onEditMeetup(meetupData);
     } else if (onAddMeetup) {
-      onAddMeetup(formData);
+      onAddMeetup(meetupData);
     }
   }
 
@@ -40,9 +61,10 @@ function MeetupForm({ onAddMeetup, onEditMeetup, meetup }) {
         <div className={classes.control}>
           <label htmlFor='title'>Meetup Title</label>
           <input
+            id='title'
+            name='title'
             type='text'
             required
-            id='title'
             ref={titleInputRef}
             defaultValue={meetup?.title || ''}
           />
@@ -50,19 +72,26 @@ function MeetupForm({ onAddMeetup, onEditMeetup, meetup }) {
         <div className={classes.control}>
           <label htmlFor='image'>Meetup Image</label>
           <input
-            type='url'
-            required
             id='image'
+            name='image'
+            type='file'
             ref={imageInputRef}
-            defaultValue={meetup?.image || ''}
+            accept='image/png , image/jpeg, image/jpg image/svg*'
           />
+          {onEditMeetup && meetup?.image && (
+            <div style={{ marginTop: '10px' }}>
+              <p>Current image:</p>
+              <img src={meetup.image} alt={meetup.title} width='100' />
+            </div>
+          )}
         </div>
         <div className={classes.control}>
           <label htmlFor='address'>Address</label>
           <input
+            id='address'
+            name='address'
             type='text'
             required
-            id='address'
             ref={addressInputRef}
             defaultValue={meetup?.address || ''}
           />
@@ -71,6 +100,7 @@ function MeetupForm({ onAddMeetup, onEditMeetup, meetup }) {
           <label htmlFor='description'>Description</label>
           <textarea
             id='description'
+            name='description'
             required
             rows='5'
             ref={descriptionInputRef}
